@@ -1,10 +1,8 @@
-package com.ust.Airline.dto;
+package com.ust.Flight_services.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Data
 @NoArgsConstructor
@@ -21,5 +19,6 @@ public class Flightdto {
     private int duration; // Duration in minutes
     private double price;
     private String airlinecode;
-    private List<Passengerdto> passengerdto;
+
+
 }

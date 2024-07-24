@@ -1,7 +1,0 @@
-[
-  {
-    "route": "POST /flights/addflight",
-    "parameters": "()",
-    "status": 200
-  }
-]
