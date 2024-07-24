@@ -1,0 +1,14 @@
+[
+  {
+    "caller": "POST /flights/addflight",
+    "callee": "com/ust"
+  },
+  {
+    "caller": "com/ust",
+    "callee": "insert into flight_details (airline,airlinecode,arrival_location,arrival_time,departure_location,departure_time,duration,flight_number,price,id) values (?,?,?,?,?,?,?,?,?,?)"
+  },
+  {
+    "caller": "com/ust",
+    "callee": "select f1_0.id,f1_0.airline,f1_0.airlinecode,f1_0.arrival_location,f1_0.arrival_time,f1_0.departure_location,f1_0.departure_time,f1_0.duration,f1_0.flight_number,f1_0.price from flight_details f1_0 where f1_0.id=?"
+  }
+]

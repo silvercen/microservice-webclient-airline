@@ -1,0 +1,246 @@
+{
+  "events": [
+    {
+      "event": "call",
+      "http_server_request": {
+        "headers": {
+          "content-length": "288",
+          "postman-token": "ec781fbd-6211-4418-848b-27db1c6881db",
+          "host": "localhost:9098",
+          "content-type": "application/json",
+          "connection": "keep-alive",
+          "cache-control": "no-cache",
+          "accept-encoding": "gzip, deflate, br",
+          "user-agent": "PostmanRuntime/7.37.3",
+          "accept": "*/*"
+        },
+        "normalized_path_info": "/flights/addflight",
+        "path_info": "/flights/addflight",
+        "protocol": "HTTP/1.1",
+        "request_method": "POST"
+      },
+      "id": 1,
+      "thread_id": 44
+    },
+    {
+      "defined_class": "com.ust.Flight_services.controller.FlightController",
+      "event": "call",
+      "id": 2,
+      "lineno": 21,
+      "method_id": "addFlight",
+      "parameters": [
+        {
+          "class": "com.ust.Flight_services.model.Flight",
+          "kind": "req",
+          "name": "flight",
+          "object_id": 1991498658,
+          "value": "Flight(id=3, flightNumber=6E404, airline=IndiGo, departureLocation=Chennai, arrivalLocation=Kolkata, departureTime=2024-08-03T08:00:00Z, arrivalTime=2024-08-03T10:30:00Z, duration=2, price=4500.0, airlinecode=6E)"
+        }
+      ],
+      "path": "com/ust/Flight_services/controller/FlightController.java",
+      "receiver": {
+        "class": "com.ust.Flight_services.controller.FlightController",
+        "object_id": 999310755,
+        "value": "com.ust.Flight_services.controller.FlightController@3b9045a3"
+      },
+      "static": false,
+      "thread_id": 44
+    },
+    {
+      "defined_class": "com.ust.Flight_services.service.FlightService",
+      "event": "call",
+      "id": 3,
+      "lineno": 13,
+      "method_id": "addFlight",
+      "parameters": [
+        {
+          "class": "com.ust.Flight_services.model.Flight",
+          "kind": "req",
+          "name": "flight",
+          "object_id": 1991498658,
+          "value": "Flight(id=3, flightNumber=6E404, airline=IndiGo, departureLocation=Chennai, arrivalLocation=Kolkata, departureTime=2024-08-03T08:00:00Z, arrivalTime=2024-08-03T10:30:00Z, duration=2, price=4500.0, airlinecode=6E)"
+        }
+      ],
+      "path": "com/ust/Flight_services/service/FlightService.java",
+      "receiver": {
+        "class": "com.ust.Flight_services.service.FlightService",
+        "object_id": 1494913019,
+        "value": "com.ust.Flight_services.service.FlightService@591a8ffb"
+      },
+      "static": false,
+      "thread_id": 44
+    },
+    {
+      "event": "call",
+      "id": 4,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "select f1_0.id,f1_0.airline,f1_0.airlinecode,f1_0.arrival_location,f1_0.arrival_time,f1_0.departure_location,f1_0.departure_time,f1_0.duration,f1_0.flight_number,f1_0.price from flight_details f1_0 where f1_0.id=?"
+      },
+      "thread_id": 44
+    },
+    {
+      "elapsed": 0.01111292,
+      "event": "return",
+      "id": 5,
+      "parent_id": 4,
+      "thread_id": 44
+    },
+    {
+      "event": "call",
+      "id": 6,
+      "sql_query": {
+        "database_type": "MySQL",
+        "sql": "insert into flight_details (airline,airlinecode,arrival_location,arrival_time,departure_location,departure_time,duration,flight_number,price,id) values (?,?,?,?,?,?,?,?,?,?)"
+      },
+      "thread_id": 44
+    },
+    {
+      "elapsed": 0.00019997,
+      "event": "return",
+      "id": 7,
+      "parent_id": 6,
+      "thread_id": 44
+    },
+    {
+      "elapsed": 0.03666199,
+      "event": "return",
+      "id": 8,
+      "parent_id": 3,
+      "return_value": {
+        "class": "com.ust.Flight_services.model.Flight",
+        "object_id": 494394580,
+        "value": "Flight(id=3, flightNumber=6E404, airline=IndiGo, departureLocation=Chennai, arrivalLocation=Kolkata, departureTime=2024-08-03T08:00:00Z, arrivalTime=2024-08-03T10:30:00Z, duration=2, price=4500.0, airlinecode=6E)"
+      },
+      "thread_id": 44
+    },
+    {
+      "elapsed": 0.04874966,
+      "event": "return",
+      "id": 9,
+      "parent_id": 2,
+      "return_value": {
+        "class": "com.ust.Flight_services.model.Flight",
+        "object_id": 494394580,
+        "value": "Flight(id=3, flightNumber=6E404, airline=IndiGo, departureLocation=Chennai, arrivalLocation=Kolkata, departureTime=2024-08-03T08:00:00Z, arrivalTime=2024-08-03T10:30:00Z, duration=2, price=4500.0, airlinecode=6E)"
+      },
+      "thread_id": 44
+    },
+    {
+      "elapsed": 0.05992179,
+      "event": "return",
+      "http_server_response": {
+        "headers": {
+          "Transfer-Encoding": "chunked",
+          "Keep-Alive": "timeout=60",
+          "Connection": "keep-alive",
+          "Date": "Tue, 23 Jul 2024 07:17:27 GMT",
+          "Content-Type": "application/json"
+        },
+        "status": 200
+      },
+      "id": 10,
+      "parent_id": 1,
+      "thread_id": 44
+    }
+  ],
+  "version": "1.2",
+  "metadata": {
+    "name": "sharath",
+    "app": "Flight-services",
+    "language": {
+      "name": "java",
+      "version": "17.0.7+7-LTS",
+      "engine": "OpenJDK 64-Bit Server VM"
+    },
+    "client": {
+      "name": "appmap-java",
+      "url": "https://github.com/appland/appmap-java"
+    },
+    "recorder": {
+      "name": "remote_recording",
+      "type": "remote"
+    },
+    "recording": {}
+  },
+  "classMap": [
+    {
+      "children": [
+        {
+          "children": [
+            {
+              "children": [
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "addFlight",
+                          "type": "function",
+                          "static": false,
+                          "location": "com/ust/Flight_services/controller/FlightController.java:21"
+                        }
+                      ],
+                      "name": "FlightController",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "controller",
+                  "type": "package"
+                },
+                {
+                  "children": [
+                    {
+                      "children": [
+                        {
+                          "name": "addFlight",
+                          "type": "function",
+                          "static": false,
+                          "location": "com/ust/Flight_services/service/FlightService.java:13"
+                        }
+                      ],
+                      "name": "FlightService",
+                      "type": "class"
+                    }
+                  ],
+                  "name": "service",
+                  "type": "package"
+                }
+              ],
+              "name": "Flight_services",
+              "type": "package"
+            }
+          ],
+          "name": "ust",
+          "type": "package"
+        }
+      ],
+      "name": "com",
+      "type": "package"
+    },
+    {
+      "type": "http",
+      "name": "HTTP server requests",
+      "children": [
+        {
+          "type": "route",
+          "name": "POST /flights/addflight"
+        }
+      ]
+    },
+    {
+      "type": "database",
+      "name": "Database",
+      "children": [
+        {
+          "type": "query",
+          "name": "select f1_0.id,f1_0.airline,f1_0.airlinecode,f1_0.arrival_location,f1_0.arrival_time,f1_0.departure_location,f1_0.departure_time,f1_0.duration,f1_0.flight_number,f1_0.price from flight_details f1_0 where f1_0.id=?"
+        },
+        {
+          "type": "query",
+          "name": "insert into flight_details (airline,airlinecode,arrival_location,arrival_time,departure_location,departure_time,duration,flight_number,price,id) values (?,?,?,?,?,?,?,?,?,?)"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4 @@
+[
+  "com/ust/Flight_services/controller/FlightController",
+  "com/ust/Flight_services/service/FlightService"
+]

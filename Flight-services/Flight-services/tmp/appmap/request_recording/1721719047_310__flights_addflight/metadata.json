@@ -1,0 +1,18 @@
+{
+  "name": "POST /flights/addflight (200) - 12:47:27.310",
+  "app": "Flight-services",
+  "language": {
+    "name": "java",
+    "version": "17.0.7+7-LTS",
+    "engine": "OpenJDK 64-Bit Server VM"
+  },
+  "client": {
+    "name": "appmap-java",
+    "url": "https://github.com/appland/appmap-java"
+  },
+  "recorder": {
+    "name": "request_recording",
+    "type": "requests"
+  },
+  "recording": {}
+}
