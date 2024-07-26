@@ -5,6 +5,7 @@ import com.ust.Flight_services.dto.Passengerdto;
 import com.ust.Flight_services.dto.Responsedto;
 import com.ust.Flight_services.model.Flight;
 import com.ust.Flight_services.repo.Flightrepo;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.stereotype.Service;
@@ -16,8 +17,10 @@ import java.util.List;
 public class FlightService {
     @Autowired
     private Flightrepo repo;
+
     @Autowired
     private WebClient webClient;
+
     public Flight addFlight(Flight flight) {
         return repo.save(flight);
     }
@@ -26,11 +29,11 @@ public class FlightService {
         return repo.findByAirlinecode(airlinecode);
     }
 
+    @CircuitBreaker(name = "flightService", fallbackMethod = "fallbackGetAirline")
     public Responsedto getAirline(String flightNumber) {
         Responsedto responseDto = new Responsedto();
         Flight flight = repo.findByFlightNumber(flightNumber).orElseThrow(() -> new RuntimeException("Flight not found"));
         Flightdto flightDto = mapToFlightdto(flight);
-
 
         List<Passengerdto> passengerdtolist = webClient.get()
                 .uri("http://localhost:9099/passangerinfo/" + flight.getFlightNumber())
@@ -42,6 +45,11 @@ public class FlightService {
         responseDto.setPassengerdto(passengerdtolist);
 
         return responseDto;
+    }
+
+    public Responsedto fallbackGetAirline(String flightNumber, Throwable throwable) {
+        // Handle the fallback logic, e.g., return a default response or log the error
+        return new Responsedto(); // Return an empty response or a default response
     }
 
     private Flightdto mapToFlightdto(Flight flight) {
@@ -56,6 +64,6 @@ public class FlightService {
         flightdto.setDuration(flight.getDuration());
         flightdto.setPrice(flight.getPrice());
         flightdto.setAirline(flight.getAirline());
-        return flightdto ;
+        return flightdto;
     }
 }
