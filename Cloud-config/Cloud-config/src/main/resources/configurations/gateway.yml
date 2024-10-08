@@ -6,7 +6,7 @@ server:
   port: 9000
 spring:
   application:
-    name: Gateway
+    name: gateway
   cloud:
     gateway:
       discovery:
@@ -25,3 +25,7 @@ spring:
           uri: http://localhost:9099
           predicates:
             - Path=/passengerinfo/**
+management:
+  tracing:
+    sampling:
+      probability: 1.0
