@@ -1,5 +1,7 @@
 spring:
+  main:
+    web-application-type: REACTIVE
   application:
     name: gateway
   config:
-    import: configserver:http://localhost:8088
+    import: optional:configserver:http://localhost:8088

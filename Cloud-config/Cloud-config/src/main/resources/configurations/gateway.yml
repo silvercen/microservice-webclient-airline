@@ -13,18 +13,18 @@ spring:
         locator:
           enabled: true
       routes:
-        - id: FlightService
+        - id: flightservice
           uri: http://localhost:9098
           predicates:
             - Path=/flights/**
-        - id: Airline
+        - id: airline
           uri: http://localhost:9097
           predicates:
             - Path=/airline/**
-        - id: Passenger
+        - id: passenger
           uri: http://localhost:9099
           predicates:
-            - Path=/passengerinfo/**
+            - Path=/passangerinfo/**
 management:
   tracing:
     sampling:
